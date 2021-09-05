@@ -1,0 +1,11 @@
+package magicitems;
+
+public class MagicWand extends MagicItem {
+
+
+	public MagicWand(String name, int weight, int price, String description, int damage, int dexterity, int magic, int strength) {
+		super( name, weight, price, description,  damage, magic, dexterity, strength);
+		this.Damage = damage;
+	}
+
+}

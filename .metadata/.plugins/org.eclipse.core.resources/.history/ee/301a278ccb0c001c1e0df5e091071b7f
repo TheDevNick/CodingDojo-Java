@@ -1,0 +1,253 @@
+package main.java.classes.game;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import java.util.Scanner;
+
+import main.java.classes.characters.Barbarian;
+import main.java.classes.characters.Fighter;
+import main.java.classes.characters.Player;
+import main.java.classes.characters.Rogue;
+import main.java.classes.characters.Sorcerer;
+import main.java.classes.tools.Comm;
+import main.java.classes.tools.HelpSystem;
+
+public class GameMaster {
+
+	private boolean active = true;
+
+	private Shop currentShop = new Shop();
+
+	public static enum GAME_STATES {
+		TRAVELING, SHOPPING, BATTLE
+	}
+
+	private GAME_STATES gameState = GAME_STATES.SHOPPING;
+
+	private Player player = null;
+
+	private Player[] players = new Player[] { new Barbarian("Rough Guy"), new Fighter("Bad ass"), new Rogue("Sneaky"),
+			new Sorcerer("Magical") };
+
+	// private Set<String> VALID_DIRECTIONS = Set.of("NORTH", "EAST", "SOUTH", "WEST", "TO");
+
+	public GameMaster() {
+	}
+
+	public void buyItem(String itemName) {
+
+		Item playerItem = player.inventory.getItemByName(itemName);
+		if ( playerItem != null) {
+			Comm.output(
+					String.format("You already have %s.\nYou will need to drop it or sell it before buying another one",
+									itemName
+					));
+			return;
+		}
+
+		Item requestedItem = this.currentShop.buyItem(itemName);
+
+		if ( requestedItem != null ) {
+			player.inventory.addItem(requestedItem);
+			player.goldPieces -= requestedItem.price;
+
+			Comm.output(String.format("You have bought a %s for %d gold pieces.", itemName, requestedItem.price));
+		} else {
+			Comm.output(String.format("Sorry, we have no '%s'.", itemName));
+		}
+	}
+
+	public Player choosePlayer() {
+
+		String playerName = "";
+
+		while (playerName == "") {
+			playerName = Comm.input("What name would you like to use?", true);
+		}
+
+		List<String> lines = new ArrayList<>();
+		lines.add("Choose a character");
+
+		int counter = 1;
+		List<String> filter = new ArrayList<String>(Arrays.asList("q"));
+
+		for (Player player : this.players) {
+			lines.add(String.format("%d. %s ", counter, player.race));
+			lines.add(String.format("      strength: %d", player.getStrength()));
+			lines.add(String.format("      dexterity: %d", player.getDexterity()));
+			lines.add(String.format("      magic: %d", player.getMagic()));
+			lines.add("");
+
+			filter.add(Integer.toString(counter));
+			counter++;
+		}
+
+		lines.add("quit = quit");
+
+		boolean doIt = true;
+		String selection = null;
+		Player player = null;
+
+		while (doIt) {
+			selection = Comm.get(lines, filter);
+
+			if (selection.contains("quit")) {
+				if (Comm.confirmYesNo("Are you sure you want to quit?")) {
+					doIt = false;
+					selection = null;
+				}
+			} else {
+				doIt = false;
+			}
+		}
+
+		if (selection != null) {
+			player = this.players[Integer.parseInt(selection) - 1];
+			player.name = playerName;
+		}
+
+		return player;
+	}
+
+	private String getDisplayPrompt() {
+
+		String prompt = String.format( "You are %s",
+				this.gameState == GAME_STATES.SHOPPING ? "shopping" :
+					this.gameState == GAME_STATES.TRAVELING ? "traveling" :
+						" in battle" );
+
+		return prompt + "\n==>";
+	}
+
+	private void displayWelcome() {
+
+		Comm.output(Arrays.asList(String.format("Welcome to the adventure %s!", player.getDisplayName()),
+				"Enter 'help' at any time for available commands"));
+	}
+
+	private void leaveGame() {
+		Comm.output("Bye!");
+		Comm.close();
+	}
+
+	private void sellItem(String itemName) {
+
+		Item itemToSell = this.player.inventory.getItemByName(itemName);
+
+		if ( itemToSell == null ) {
+			Comm.output("enter a valid item name.");
+			return;
+		}
+
+		int sellPrice = (int)Math.floor(itemToSell.price / 2);
+		if ( Comm.confirmYesNo(
+				String.format(
+						"Do you want to sell your %s for %d gold pieces?",
+						itemToSell.name, sellPrice
+						)
+				)) {
+			Comm.output(String.format("You sold your %s for %d gold pieces", itemName, sellPrice));
+			this.player.inventory.removeItem(itemToSell);
+			this.player.goldPieces += sellPrice;
+		}
+	}
+
+	public void start() { // returns null if player dies
+
+		this.player = this.choosePlayer();
+
+		active = this.player != null;
+
+		if (active) {
+			this.displayWelcome();
+			this.gameState = GAME_STATES.SHOPPING;
+		}
+
+		while (active) {
+
+			String[] requestParts = Comm.getRequest(this.getDisplayPrompt());
+
+			boolean requestConsumed = false;
+
+			switch (requestParts[0]) {
+			case "quit":
+				active = !Comm.confirmYesNo("Are you sure you want to quit?");
+				requestConsumed = true;
+				break;
+
+			case "joke":
+				Comm.output(HelpSystem.getAJoke());
+				requestConsumed = true;
+				break;
+
+			case "help":
+				Comm.output(HelpSystem.getHelpMessage(this.gameState));
+				requestConsumed = true;
+				break;
+
+			case "inventory":
+				Comm.output(this.player.inventory.getAsList());
+				requestConsumed = true;
+				break;
+
+			case "stats":
+				Comm.output(this.player.getStats());
+				requestConsumed = true;
+				break;
+			}
+
+			if (!requestConsumed) {
+
+				switch (this.gameState) {
+
+				case SHOPPING:
+					switch (requestParts[0]) {
+						case "buy":
+							if ( requestParts[1] != null) {
+								this.buyItem(requestParts[1]);
+							} else {
+								Comm.output("Enter the name of the item you would like to purchase.");
+							}
+							break;
+	
+						case "sell":
+							if ( requestParts[1] != null) {
+								this.sellItem(requestParts[1]);
+							} else {
+								Comm.output("Enter the name of the item you would like to sell.");
+							}
+							break;
+	
+						case "list": 
+							Comm.output(this.currentShop.displayInventory());
+							break;
+	
+						default:
+							Comm.output("Invalid Request 1");
+					}
+					break;
+
+				case TRAVELING:
+					switch (requestParts[0]) {
+						default:
+							Comm.output("Invalid Request");
+					}
+					break;
+
+				case BATTLE:
+					switch (requestParts[0]) {
+						default:
+							Comm.output("Invalid Request");
+					}
+					break;
+
+				}
+			}
+		}
+
+		this.leaveGame();
+		return;
+	}
+}

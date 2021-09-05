@@ -1,0 +1,52 @@
+package main.java.classes;
+
+public class Calculator implements java.io.Serializable  {
+//	member variables
+	private double results;
+	private double num1;
+	private double num2;
+	private char operator; 
+	
+//	zero arguement constructor require for java bean
+	public Calculator() {}
+	
+//	setter
+	public void setNum1(double numInput) {
+		this.num1 = numInput;
+	}
+	
+	public void setNum2(double numInput) {
+		this.num2 = numInput;
+	}
+	
+	public void setOperator(char charInput) {
+		this.operator = charInput;
+	}
+	
+	public void performOpertation() {
+		if ( this.operator == '+') {
+			results = num1 + num2;
+		}
+		
+		if (this.operator == '-') {
+			results = num1 - num2;
+		}
+		
+		if (this.operator == '*') {
+			results = num1 * num2;
+		}
+		
+		if (this.operator == '/') {
+			results = num1 - num2;
+		}
+	}
+	
+	
+	
+	public void getResult() {
+		System.out.println("The results of your calculation is: " + results);
+	}
+	
+	
+	
+}

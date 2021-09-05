@@ -1,0 +1,7 @@
+package main.java.classes;
+
+import main.java.interfaces.OperateBicycle;
+
+public class Bicycle implements OperateBicycle{
+
+}

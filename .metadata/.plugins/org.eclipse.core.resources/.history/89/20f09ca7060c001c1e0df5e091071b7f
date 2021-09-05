@@ -1,0 +1,14 @@
+package test.classes;
+
+import org.junit.jupiter.api.BeforeEach;
+
+
+public class CharacterTests {
+
+	public TestCharacter character;
+	
+	@BeforeEach
+	void setup() {
+		this.character = new TestCharacter("test character", 10, 15, 0, 0, null)
+	}
+}

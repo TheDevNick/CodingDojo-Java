@@ -1,0 +1,15 @@
+package com.codingdojo.HelloHuman.controllers;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@SpringBootApplication
+@Controller
+public class HomeController {
+	@RequestMapping("/")
+	public String index(Model model, @RequestParam(value="name", required=false, defaultValue="Human") String name) {
+		return "home/index.html";
+	}
+
+}

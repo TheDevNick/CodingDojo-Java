@@ -1,0 +1,5 @@
+package com.codingdojo.HelloHuman.controllers;
+
+public class HomeController {
+
+}

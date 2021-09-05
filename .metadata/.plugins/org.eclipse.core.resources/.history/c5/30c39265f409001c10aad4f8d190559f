@@ -1,0 +1,21 @@
+package main.java.classes;
+import main.java.interfaces.PokemonInterface;
+import java.util.ArrayList;
+
+public abstract class AbstractPokemon implements PokemonInterface {
+//	when empty, it does not throw an error, why is that? I thought i had to fulfill the contract?
+	
+	public Pokemon createPokemon(String name, int health, String type) {
+		return new Pokemon(name, health, type);
+		
+	}
+	
+	public void pokemonInfo(Pokemon pokemon) {
+		pokemon.setName(pokemon.getName());
+		pokemon.setHealth(pokemon.getHealth());
+		pokemon.setType(pokemon.getType());
+	}
+	
+	
+	
+}

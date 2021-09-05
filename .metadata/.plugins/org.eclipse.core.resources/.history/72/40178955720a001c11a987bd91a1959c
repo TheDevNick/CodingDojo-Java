@@ -1,0 +1,11 @@
+package main.java.classes.characters;
+
+public class Rogue extends Player {
+
+	public Rogue(String description) {
+		super("rogue", rollDie(5) + 16, 21, 0, rollDie(2) + 1, description);
+		
+		this.dexterity = 25 - (5 - (this.maxStrength - this.strength));
+	}
+
+}

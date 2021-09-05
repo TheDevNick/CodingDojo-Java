@@ -1,0 +1,45 @@
+package main.java.classes.game;
+
+import java.util.Arrays;
+import java.util.List;
+
+import magicitems.MagicGun;
+import magicitems.MagicSword;
+import magicitems.MagicWand;
+import main.java.classes.food.Bread;
+import main.java.classes.food.Cookie;
+import main.java.classes.food.Meat;
+import main.java.classes.food.Vegetable;
+import main.java.classes.weapons.Axe;
+import main.java.classes.weapons.Bow;
+import main.java.classes.weapons.Shield;
+import main.java.classes.weapons.Sword;
+
+public class Shop {
+
+	private Inventory inventory = new Inventory( Arrays.asList(
+			new Sword("broadsword", 1850, 4, 4, 3, "a large sword"),
+			new Sword("longsword", 1360, 5, 4, 4, "a long sword"),
+			new Shield(),
+			new Bow("longbow", 1360, 7, 5, 0, "includes arrows"),
+			new Bow("crossbow", 6803, 12, 6, 0, "includes arrows"),
+			new Axe("axe", 1350, 6, 9, 8, "a large axe"),
+			new Meat(),
+			new Bread(),
+			new Vegetable(),
+			new Cookie(),
+			new MagicSword("magicsword", 152, 8, "Magic sword desc.", 50),
+			new MagicGun("magicgun", 250, 5, "Have magic bullets", 50),
+			new MagicWand("magicwand", , 0, null)
+			));
+
+	public Item buyItem(String itemName) {
+		// have students implement'bartering' ability
+		return this.inventory.getItemByName(itemName);
+	}
+
+	public List<String> displayInventory() {
+
+		return this.inventory.getAsList();
+	}
+}

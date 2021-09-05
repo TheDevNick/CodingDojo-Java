@@ -1,0 +1,9 @@
+package main.java.classes.tools;
+
+import java.util.Random;
+
+public class roll {
+	public static int rollDie(int numberOfSides) {
+		return new Random().nextInt(numberOfSides) + 1;
+	}
+}

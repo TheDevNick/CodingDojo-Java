@@ -1,0 +1,13 @@
+package main.java.classes.tools;
+
+import java.util.Random;
+
+import main.java.classes.characters.Character;
+
+public class roll  {
+	
+
+	public static int rollDie(int numberOfSides) {
+		return new Random().nextInt(numberOfSides) + 1;
+	}
+}

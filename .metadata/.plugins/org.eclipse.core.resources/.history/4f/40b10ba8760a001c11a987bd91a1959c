@@ -1,0 +1,9 @@
+package magicitems;
+
+public class MagicWand extends MagicItem {
+
+	public MagicWand(String name, int weight, int price, String description) {
+		super(name, weight, price, description);
+	}
+
+}

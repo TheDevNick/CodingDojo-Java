@@ -1,0 +1,13 @@
+package main.java.classes.characters;
+
+import main.java.classes.tools.Die;
+
+public class Barbarian extends Player {
+
+	public Barbarian(String description) {
+		super("barbairan", Die.rollDie(5) + 19, 24, 0, Die.roll(1), description);
+		
+		this.dexterity = 20 - (5 - (this.maxStrength - this.strength));
+	}
+
+}

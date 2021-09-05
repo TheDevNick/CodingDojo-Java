@@ -1,0 +1,12 @@
+package main.java.classes.characters;
+
+import main.java.classes.tools.Die;
+
+public class Troll extends Character {
+
+	public Troll(String name, String description) {
+		super(name, Die.rollDie(5) + 20, 25, 0, Character.Die.rollDie(3) + 7, description);
+		
+		this.dexterity = 15 - (5 - (this.maxStrength - this.strength));
+	}
+}

@@ -1,0 +1,33 @@
+package com.codingdojo.TheCode.controllers;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@SpringBootApplication
+@Controller
+public class HomeController {
+	@GetMapping("/")
+	public String Home() {
+		return "home/index";
+	}
+	
+	@PostMapping("/")
+	public String Home(@RequestParam(value="textinput") String userInput) {
+		String result ="";
+		if(userInput.equals("bushido")) {
+			result= "redirect:/display";
+		}else {
+			result = "redirect:/createError";
+		}
+		return result;
+	}
+	
+	@GetMapping("/display")
+	public String display() {
+		return "home/
+	}
+	
+}

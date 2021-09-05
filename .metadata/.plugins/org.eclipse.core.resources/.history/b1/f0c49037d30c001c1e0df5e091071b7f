@@ -1,0 +1,13 @@
+package main.java.classes.game;
+
+public class GridSquare {
+	public int row;
+	public int column;
+	public Character character;
+	public boolean isWall;
+	public Item item;
+	
+	public GridSquare() {
+		
+	}
+}

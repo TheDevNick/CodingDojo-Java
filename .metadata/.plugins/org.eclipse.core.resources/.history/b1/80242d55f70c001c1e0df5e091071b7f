@@ -1,0 +1,11 @@
+package main.java.classes.game;
+
+import org.junit.jupiter.api.BeforeEach;
+
+public class GameMapTest {
+	private GameMap gameMap;
+	@BeforeEach
+	void setup() {
+		this.gameMap  = GameMap new GameMap(10);
+	}
+}

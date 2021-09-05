@@ -1,0 +1,25 @@
+package com.codingdojo.DisplayDate.controllers;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@SpringBootApplication
+@Controller
+public class HomeController {
+	@GetMapping("/")
+	public String Home() {
+		return "home/index.html";
+	}
+	
+	@GetMapping("/date")
+	public String Date() {
+		return "home/date.html";
+	}
+	
+	@GetMapping("/time")
+	public String Date() {
+		return "home/date.html";
+	}
+
+}

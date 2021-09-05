@@ -1,0 +1,8 @@
+package main.java.interfaces;
+
+import main.java.classes.Phone;
+
+public interface Ringable {
+	String ring(Phone phone);
+	String unlock()
+}

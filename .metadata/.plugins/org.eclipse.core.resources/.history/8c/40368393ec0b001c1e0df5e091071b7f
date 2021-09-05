@@ -1,0 +1,10 @@
+package com.codingdojo.DisplayDate.controllers;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+
+@SpringBootApplication
+@Controller
+public class HomeController {
+
+}

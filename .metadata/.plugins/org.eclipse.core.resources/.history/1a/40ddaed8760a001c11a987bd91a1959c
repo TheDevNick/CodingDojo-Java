@@ -1,0 +1,10 @@
+package magicitems;
+
+public class MagicSword extends MagicItem {
+
+	public MagicSword(String name, int weight, int price, String description, int damage) {
+		super(name, weight, price, description, damage);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,21 @@
+package main.java.classes.game;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.TestInstantiationException;
+
+public class GameMapTest {
+	private GameMap gameMap;
+	@BeforeEach
+	void setup() {
+		this.gameMap  = new GameMap(10);
+	}
+	
+	@Test
+	void testInstantiation() {
+		//set the size
+		assertTrue(this.gameMap.size ==);
+	}
+}

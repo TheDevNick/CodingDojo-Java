@@ -1,0 +1,17 @@
+package main.java.classes.game;
+
+import java.awt.Point;
+
+public class GameMap {
+
+	public Point centerGrid;
+	public GridSquare[][] grid;
+	public int size;
+	
+	public GameMap(int size) {
+		this.grid = new GridSquare[size][size];
+		this.size = size;
+		this.centerGrid = new Point
+	}
+	
+}

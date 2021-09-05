@@ -1,0 +1,5 @@
+package com.codingdojo.fakeproject.controllers;
+
+public class HomeController {
+
+}

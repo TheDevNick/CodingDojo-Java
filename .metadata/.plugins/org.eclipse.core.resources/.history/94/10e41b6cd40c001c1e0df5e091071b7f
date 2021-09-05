@@ -1,0 +1,15 @@
+package main.java.classes.game;
+
+import main.java.classes.characters.Character;
+
+public class GridSquare {
+	public int row;
+	public int column;
+	public Character character;
+	public boolean isWall;
+	public Item item;
+	
+	public GridSquare(int gridRow, int gridColumn, Character gridCharacter, boolean isWall, ) {
+		
+	}
+}

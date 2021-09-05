@@ -1,0 +1,10 @@
+package magicitems;
+
+public class MagicGun extends MagicItem{
+
+	public MagicGun(String name, int weight, int price, String description, int damage) {
+		super( name, weight, price, description,  damage, );
+		this.Damage = damage;
+	}
+
+}

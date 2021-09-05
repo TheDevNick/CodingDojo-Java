@@ -1,0 +1,8 @@
+package com.codingdojo.TheCode.controllers;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplicationp
+public class HomeController {
+
+}

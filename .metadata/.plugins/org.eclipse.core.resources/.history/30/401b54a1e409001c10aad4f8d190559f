@@ -1,0 +1,7 @@
+package main.java.classes;
+
+public class ClassDemo extends AbstractDemo{
+	public void Display() {
+		
+	}
+}

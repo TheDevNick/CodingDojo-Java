@@ -1,0 +1,17 @@
+package main.java.classes.tools;
+
+import java.util.Random;
+
+import main.java.classes.characters.Character;
+
+public class roll extends Character {
+	
+	public roll(String race, int strength, int maxStrength, int dexterity, int magic, String description) {
+		super(race, strength, maxStrength, dexterity, magic, description);
+		
+	}
+
+	public static int rollDie(int numberOfSides) {
+		return new Random().nextInt(numberOfSides) + 1;
+	}
+}

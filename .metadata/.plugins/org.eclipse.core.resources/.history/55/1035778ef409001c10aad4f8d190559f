@@ -1,0 +1,6 @@
+package main.java.classes;
+
+public class Pokedex extends AbstractPokemon  {
+	private ArrayList<Pokemon> myPokemons;
+	
+}

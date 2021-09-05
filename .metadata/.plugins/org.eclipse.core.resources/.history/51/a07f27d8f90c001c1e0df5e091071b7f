@@ -1,0 +1,29 @@
+package main.java.classes.game;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class GameMapTest {
+	private GameMap gameMap;
+	private int size = 10;
+
+	@BeforeEach
+	void setup() {
+		this.gameMap = new GameMap(size);
+	}
+
+	@Test
+	void testInstantiation() {
+		// set the size
+		assertTrue(this.gameMap.size == size);
+//		instantiate grid array
+		assertTrue(this.gameMap.grid.length == size);
+		assertTrue(this.gameMap.grid[0].length == size);
+		
+		//center grid is correct 
+		assertTrue(this.gameMap.centerGrid.x == );
+
+	}
+}

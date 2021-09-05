@@ -1,0 +1,34 @@
+package test.classes;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
+public class CharacterTests {
+
+	public TestCharacter character;
+	
+	@BeforeEach
+	void setup() {
+		this.character = new TestCharacter("test character", 10, 15, 20, 3, "character desc.");
+	}
+	
+	@Test
+	void testStregnthGetterSetters() {
+		
+		this.character.setMaxStrength(100);
+		assertTrue(this.character.getMaxStrength() == 100);
+		
+		this.character.setStrength(50);
+		assertTrue(this.character.getStrength() == 50);
+		
+		this.character.setDexterity(20);
+		assertTrue(this.character.getDexterity() == 25);
+		
+		this.character.setMagic(3);
+		assertTrue(this.character.getMagic() == 5);
+		
+	}
+}

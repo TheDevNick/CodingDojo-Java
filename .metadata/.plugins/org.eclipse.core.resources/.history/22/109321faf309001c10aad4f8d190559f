@@ -1,0 +1,13 @@
+package main.java.interfaces;
+import jdk.internal.org.jline.reader.impl.history.DefaultHistory;
+import main.java.classes.Pokemon;
+
+public interface PokemonInterface {
+	Pokemon createPokemon(String name, int health, String type);
+	DefaultHistory  pokemonInfo(Pokemon pokemon) {
+		 String newString = "Name: " + pokemon.getName() + ", Health: " + pokemon.getHealth() + ", Type: " + pokemon.getType();
+	        System.out.println(newString);
+	}
+	void listPokemon();//do this need implementation since it's void? 
+	
+}

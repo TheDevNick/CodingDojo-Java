@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments::header"></head>
+<body>
+ <a class="nav-link active" href="/">Home</a>
+ 
+ 
+</body>
+</html>

@@ -1,0 +1,9 @@
+package main.java.interfaces;
+
+import main.java.classes.Pokemon;
+
+public interface PokemonInterface {
+	Pokemon createPokemon(String name, int health, String type) {
+		
+	}
+}

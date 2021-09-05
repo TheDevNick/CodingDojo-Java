@@ -1,0 +1,30 @@
+package main.java.classes.game;
+
+public class GridSquare {
+	public int x;
+	public int y;
+	public Character character;
+	public boolean isWall;
+	public Item item;
+	public Shop shop;
+
+	public GridSquare(int gridRow, int gridColumn, Character gridCharacter, boolean isWall, Item gridItem,
+			Shop gridShop) {
+		this.y = gridRow;
+		this.x = gridColumn;
+		this.character = gridCharacter;
+		this.isWall = isWall;
+		this.item = gridItem;
+		this.shop = gridShop;
+
+	}
+
+	int width = 5;
+	int height = 5;
+	GridSquare[][] gridSquares = new GridSquare[width][height];for(x=0;x<width;x++)
+	{
+	    for(int y = 0; y < height; y++) {
+	        gridSquares[x][y] = new GridSquare(x, y, ...);
+}
+	}
+}}

@@ -1,0 +1,5 @@
+package magicitems;
+
+public class MacicWand extends MagicItem {
+
+}

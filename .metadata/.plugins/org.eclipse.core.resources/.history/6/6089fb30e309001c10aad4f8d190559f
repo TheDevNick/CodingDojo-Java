@@ -1,0 +1,11 @@
+package main.java.classes;
+
+public class SubClassOne extends AbstractClass {
+
+	@Override
+	public void abstractMethod() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

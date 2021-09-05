@@ -1,0 +1,30 @@
+package main.java.classes;
+
+public class Pokemon {
+//	Member Variables
+	public String Name;
+	public int Health;
+	public String Type;
+	
+	public static int count = 0;
+	
+// Constructors
+	public Pokemon(String pokemonName, int pokemonHealth, String pokemonType) {
+		this.Health = pokemonHealth;
+		this.Name = pokemonName;
+		this.Type = pokemonType;
+		count++;
+	}
+	
+//Methods
+	void attackPokemon(Pokemon pokemon) {
+		pokemon.Health -= 10;
+	}
+	
+// getters
+	public String getName() {
+		return Name;
+	}
+	
+	public 
+}

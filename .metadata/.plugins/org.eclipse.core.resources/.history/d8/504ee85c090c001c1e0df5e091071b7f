@@ -1,0 +1,35 @@
+package test.classes;
+
+import main.java.classes.characters.Character;
+
+public class TestCharacter extends Character {
+	
+	private String race;
+	private int strength;
+	private int maxStrength;
+	private int dexterity;
+	private int magic;
+	private String description;
+
+	public TestCharacter(String race, int strength, int maxStrength, int dexterity, int magic, String description) {
+		super(race, strength, maxStrength, dexterity, magic, description);
+		// TODO Auto-generated constructor stub
+	}
+	
+//	getters
+	public String getDescription() {
+		return this.description;
+	}
+	
+	public int getStrength() {
+		return this.strength
+	}
+	
+	public int getMaxStrength() {
+		return this.maxStrength;
+	}
+	
+	public int d
+	
+
+}
