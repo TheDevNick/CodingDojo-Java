@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<form action="/register" method="post">
+		<div>
+			<label for="name">Your Name:</label>
+			<input type="text" name="name">
+		</div>
+
+		<div>
+			<label for="location">Dojo Location:</label>
+			<select name="location">
+				<option value="dallas">Dallas</option>
+				<option value="chicago">Chicago</option>
+				<option value="atlanta">Atlanta</option>
+				<option value="california">California</option>
+			</select>
+		</div>
+
+		<div>
+			<label for="favorite">Favorite Language:</label>
+			<select name="favorite">
+				<option value="python">Python</option>
+				<option value="javascript">Javascript</option>
+				<option value="C#">C#</option>
+				<option value="java">Java</option>
+			</select>
+		</div>
+
+		<div>
+			<label for="comment">Comment(Optional):</label>
+			<textarea name="comment" cols="30" rows="10"></textarea>
+		</div>
+
+
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+
+</html>

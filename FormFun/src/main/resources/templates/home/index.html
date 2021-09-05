@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Survey</title>
+</head>
+<body>
+	<h1>NBA Survey</h1>
+    <form action="/submit" method="post">
+        <div>
+          <label for="name">Your Name:</label>
+            <input type="text" name="name">  
+        </div>
+        
+        <div>
+        <label for="favplayer">Favorite basketball player:</label>
+        <select name="favplayer">
+            <option value="Lebron James">Lebron James</option>
+            <option value="Kevin Durant">Kevin Durant</option>
+            <option value="Anthony Davis">Anthony Davis</option>
+            <option value="James Harden">James Harden</option>
+        </select> 
+        </div>
+
+        <div>
+        <label for="favteam">Favorite Team:</label>
+        <select name="favteam">
+            <option value="Brooklyn Nets">Brooklyn Nets</option>
+            <option value="Los Angeles Lakers">Los Angeles Lakers</option>
+            <option value="Boston Celtics">Boston Celtics</option>
+            <option value="Atlanta Hawks">Atlanta Hawks</option>
+        </select>
+        </div>
+
+        <div>
+        <label for="comment">Comment:</label>
+        <textarea name="comment" cols="30" rows="10"></textarea> 
+        </div>
+ 
+
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
