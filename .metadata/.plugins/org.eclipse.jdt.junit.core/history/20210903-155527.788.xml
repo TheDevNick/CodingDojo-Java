@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="GameMapTest" project="MyAdventureWos" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="main.java.classes.game.GameMapTest" time="0.021" displayname="GameMapTest" uniqueid="[engine:junit-jupiter]/[class:main.java.classes.game.GameMapTest]">
-    <testcase name="testInstantiation" classname="main.java.classes.game.GameMapTest" time="0.021" displayname="testInstantiation()" uniqueid="[engine:junit-jupiter]/[class:main.java.classes.game.GameMapTest]/[method:testInstantiation()]"/>
-  </testsuite>
-</testrun>

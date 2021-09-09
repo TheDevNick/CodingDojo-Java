@@ -1,8 +1,0 @@
-package main.java.classes.game;
-
-import org.junit.jupiter.api.BeforeEach;
-
-public class GameMapTest {
-	private GameMap gameMap;
-	@BeforeEach
-}

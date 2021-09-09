@@ -1,8 +1,0 @@
-package com.ZooKeeper.ZooKeeper;
-
-public class Mammal {
-	public String ShowEnergy() {
-		System.out.println("Shw energy");
-		return "Animal energy is 100";
-	}
-}

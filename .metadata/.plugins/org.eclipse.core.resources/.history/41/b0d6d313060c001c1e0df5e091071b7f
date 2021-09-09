@@ -1,7 +1,0 @@
-package test.classes;
-
-import main.java.classes.characters.Character;
-
-public class TestCharacter extends Character {
-
-}

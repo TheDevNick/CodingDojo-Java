@@ -1,7 +1,0 @@
-package com.ZooKeeper.ZooKeeper;
-
-public class Mammal {
-	public static String ShowEnergy() {
-		return "Animal energy is 100";
-	}
-}
