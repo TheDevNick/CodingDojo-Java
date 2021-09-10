@@ -21,7 +21,6 @@ import com.codingdojo.StudentRoster.services.StudentService;
 
 @SpringBootApplication
 @Controller
-@RequestMapping("/contacts")
 public class ContactController {
 //	private final StudentService studentService;
 //	public StudentController(StudentService studentService) {
@@ -40,22 +39,22 @@ public class ContactController {
 	ContactService contactService;
 
 	// create
-	@GetMapping("/new")
+	@GetMapping("/contacts/new")
 	public String index(Model model, @ModelAttribute("contact") Contact contact) {
 		List<Student> students = studentService.allStudents();
 		model.addAttribute("students", students);
-		return "/contacts/new.jsp";
+		return "/contact/new.jsp";
 	}
 
 	// post create
 
-	@PostMapping("/new/process")
+	@PostMapping("contacts/new/process")
 	public String create(@Valid @ModelAttribute("contact") Contact contact, BindingResult result) {
 		if (result.hasErrors()) {
 			return "/contacts/new";
 		} else {
 			contactService.createContact(contact);
-			return "redirect:/students";
+			return "redirect:/";
 		}
 	}
 }

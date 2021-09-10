@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +22,6 @@ import com.codingdojo.StudentRoster.services.StudentService;
 
 @SpringBootApplication
 @Controller
-@RequestMapping("/students")
 public class StudentController {
 //	private final StudentService studentService;
 //	public StudentController(StudentService studentService) {
@@ -44,25 +44,35 @@ public class StudentController {
 	public String index(Model model) {
 		List<Student> students = studentService.allStudents();
 		model.addAttribute("students", students);
-		return "index.jsp";
+		return "/students/index.jsp";
 	}
 	
 	//show student create page 
-	@GetMapping("/new")
+	@GetMapping("/students/new")
 	public String newStudent(@ModelAttribute("student") Student student) {
 		return "/students/new.jsp";
 	}
 
 	//post create
 
-	@PostMapping("/new/process")
+	@PostMapping("/students/new/process")
 	public String create(@Valid @ModelAttribute("student") Student student, BindingResult result) {
 		if (result.hasErrors()) {
 			return "/students/new";
 		} else {
 			studentService.createStudent(student);
-			return "redirect:/students";
+			return "redirect:/";
 		}
+	}
+	
+	//show student when clicking on name link
+	@GetMapping("/students/{id}")
+	public String show(Model model, @PathVariable("id") Long id) {
+
+		Student student = studentService.findById(id);
+		model.addAttribute("student", student);
+
+		return "/students/show.jsp";
 	}
 	
 	
