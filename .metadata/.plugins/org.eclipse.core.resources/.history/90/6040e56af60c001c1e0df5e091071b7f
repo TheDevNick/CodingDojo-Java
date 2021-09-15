@@ -1,8 +1,0 @@
-package main.java.classes.game;
-
-import java.awt.Point;
-
-public class GameMap {
-
-	Point
-}

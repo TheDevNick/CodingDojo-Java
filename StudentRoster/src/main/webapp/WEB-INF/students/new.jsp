@@ -12,10 +12,10 @@
 
 </head>
 <body>
-<div class="container-fluid">
-<div class="container">
-		<div class="col-6">
-		<h1 class="pt-4">New Student</h1>
+<div>
+<div>
+		<div >
+		<h1 >New Student</h1>
 		
 		<form:form action="/students/new/process" method="post"
 			modelAttribute="student" class="pt-3">
@@ -36,7 +36,7 @@
 	
 			</p>
 
-			<input type="submit" value="Add Student" class="btn btn-secondary" />
+			<input type="submit" value="Add Student" />
 		</form:form>
 		</div>
 

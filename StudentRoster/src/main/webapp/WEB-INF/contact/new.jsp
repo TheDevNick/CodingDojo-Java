@@ -15,10 +15,10 @@
 
 </head>
 <body>
-	<div class="container-fluid">
+	<div>
 
-		<div class="col-6">
-			<h1 class="pt-4">Contact Info</h1>
+		<div>
+			<h1>Contact Info</h1>
 			<form:form action="/contacts/new/process" method="post"
 				modelAttribute="contact" class="pt-3">
 				<p>

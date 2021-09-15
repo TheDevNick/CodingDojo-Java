@@ -1,9 +1,0 @@
-<!DOCTYPE html>
-<html lang="en">
-<head th:replace="fragments::header"></head>
-<body>
- <a href="/date">Home</a>
- 
- 
-</body>
-</html>

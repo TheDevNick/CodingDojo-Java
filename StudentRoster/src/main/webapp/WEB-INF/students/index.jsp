@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ page isErrorPage="true"%>
 
 <!DOCTYPE html>
 <html>
@@ -11,16 +11,16 @@
 <title>Students</title>
 
 
-
 </head>
 <body>
-	<div class="container-fluid">
+	<div>
 		<h1>All Students</h1>
 		<a href="/students/new">Add Student</a>
 		<a href="/contacts/new">Add Contact</a>
-
+		<a href="/dorms/new">Add Dorm</a>
+		<a href="/courses/new">Add Course</a>
 		
-		<table class="table mt-5">
+		<table>
 			<thead>
 				<tr>
 					<th scope="col">Name</th>
@@ -33,7 +33,7 @@
 			<tbody>
 				<c:forEach items="${students}" var="student">
 					<tr>
-						<td><c:out value="${student.first_name} ${student.last_name}" /></td>
+						<td><a href="/students/${student.id}"><c:out value="${student.first_name} ${student.last_name}" /></a></td>
 						<td><c:out value="${student.age}" /></td>
 						<td><c:out value="${student.contact.address}" /></td>
 						<td><c:out value="${student.contact.city}" /></td>

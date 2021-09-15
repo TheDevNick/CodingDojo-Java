@@ -1,6 +1,7 @@
 package com.codingdojo.StudentRoster.models;
 
 import java.util.Date;
+import java.util.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,7 +28,19 @@ public class Student {
 	@OneToOne(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 
 	private Contact contact;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="dorm_id")
+	private Dorm dorm;
 
+	// M:M relationship
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+			name = "courses_students",
+			joinColumns = @JoinColumn(name = "student_id"),
+			inverseJoinColumns = @JoinColumn(name = "course_id")
+			)
+	private List<Course> courses;
 	// create/update
 
 	@Column(updatable = false)
@@ -97,5 +110,38 @@ public class Student {
 		this.contact = contact;
 	}
 	
+	public Dorm getDorm() {
+		return dorm;
+	}
+	
+	public void setDorm(Dorm dorm) {
+		this.dorm = dorm;
+	}
+	
+	public List<Course> getCourses() {
+		return courses;
+	}
+	
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+
 
 }
